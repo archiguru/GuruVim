@@ -1,5 +1,5 @@
 local M = {}
-M.version = "v0.10.4"
+M.version = "v1.0.1"
 
 ---@type UserConfig
 M.config = require("guru.config")
@@ -7,7 +7,7 @@ M.config = require("guru.config")
 function M.setup(user_config)
   require("guru.utils.global")
   require("guru.basic")
-  -- user config override
+  -- 用户配置覆盖
   M.config = vim.tbl_deep_extend("force", M.config, user_config)
   require("guru.env").init(M.config)
   require("guru.keybindings")

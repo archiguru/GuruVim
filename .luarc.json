@@ -3,5 +3,8 @@
     "Lua.diagnostics.disable": [
         "undefined-field",
         "missing-parameter"
+    ],
+    "diagnostics.globals": [
+        "vim"
     ]
 }

@@ -151,7 +151,7 @@ local section_mru = {
   val = {
     {
       type = "text",
-      val = "Recent files",
+      val = "最近文件",
       opts = {
         hl = "SpecialComment",
         shrink_margin = false,
@@ -178,10 +178,10 @@ local buttons = {
     dashboard.button("e", "  新建文件", "<cmd>ene<CR>"),
     dashboard.button("<C-p>", "  查找文件"),
     dashboard.button("<C-f>", "  实时查询"),
-    dashboard.button("m", "  包管理", "<cmd>Mason<CR>"),
-    dashboard.button("t", "  更新TS", "<cmd>TSUpdate<CR>"),
+    dashboard.button("m", "  Mason", "<cmd>Mason<CR>"),
+    dashboard.button("t", "  TSUpdate", "<cmd>TSUpdate<CR>"),
     dashboard.button("u", "  还原插件", "<cmd>Lazy restore<CR>"),
-    -- dashboard.button("c", "  配置", "<cmd>cd ~/.config/nvim/ <CR>"),
+    dashboard.button("c", "  配置", "<cmd>e ~/.config/nvim/init.lua <CR>"),
     dashboard.button("q", "  退出", "<cmd>qa<CR>"),
   },
   position = "left",
@@ -190,11 +190,12 @@ local buttons = {
 local nvimInfo = function()
   local v = vim.version()
   ---@diagnostic disable-next-line: need-check-nil
-  local nvimVersion = "nvim v" .. v.major .. "." .. v.minor .. "." .. v.patch
+  local nvimVersion = "Neovim v" .. v.major .. "." .. v.minor .. "." .. v.patch
   ---@diagnostic disable-next-line: undefined-global
   -- return nvimVersion .. " with" .. "  " .. #vim.tbl_keys(packer_plugins) .. " plugins "
   local stats = require("lazy").stats()
-  return nvimVersion .. " with" .. "  " .. stats.count .. " plugins"
+  local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+  return nvimVersion .. "在 " .. ms .. " 毫秒内加载了  " .. stats.count .. " 个插件"
 end
 
 local nvimInfoSection = {
@@ -209,7 +210,7 @@ local nvimInfoSection = {
 
 local versionSection = {
   type = "text",
-  val = require("guru").version .. " Make with ♥ By ArchiGuru",
+  val = "GuruVim " .. require("guru").version .. " - 由 ArchiGuru 用 ♥ 制作.",
   opts = {
     position = "center",
     hl = "Type",
