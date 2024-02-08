@@ -37,18 +37,39 @@ rm -rf ~/.local/share/nvim
 
 1. 克隆本项目到 Neovim 配置目录
 
+- 删除以下目录
+
 ```bash
 rm -rf ~/.config/nvim
 rm -rf ~/.cache/nvim
 rm -rf ~/.local/share/nvim
-
-git clone https://github.com/archiguru/GuruVim.git ~/.config/nvim
-
-# use SSH
-# git clone git@github.com:archiguru/GuruVim.git
-# use gitee 
-# git clone https://gitee.com/archiguru/GuruVim.git ~/.config/nvim
 ```
+
+- GitHub
+  - use HTTPS
+
+  ```bash
+  git clone https://github.com/archiguru/GuruVim.git ~/.config/nvim
+  ```
+
+  - use SSH
+
+  ```bash
+  git clone git@github:archiguru/GuruVim.git ~/.config/nvim
+  ```
+
+- Gitee
+  - use HTTPS
+
+  ```bash
+  git clone https://gitee.com/archiguru/GuruVim.git ~/.config/nvim
+  ```
+
+  - use SSH
+
+  ```bash
+  git clone git@gitee:archiguru/GuruVim.git ~/.config/nvim
+  ```
 
 2. 运行 `nvim` ，等待插件全部安装完成
 
@@ -56,11 +77,12 @@ git clone https://github.com/archiguru/GuruVim.git ~/.config/nvim
 
 ## 自定义配置
 
-自定义配置非常简单，就像配置一个插件一样，只需要修改 `~/.config/nvim/init.lua` 后保存重启即可
+自定义配置非常简单，就像配置一个插件一样，只需要修改 `~/.config/nvim/init.custom.lua` 后保存重启即可
 
 ```lua
 require("guru").setup({
-    -- 按需设置参数
+    -- 用户配置，按需设置参数
+
 })
 ```
 
